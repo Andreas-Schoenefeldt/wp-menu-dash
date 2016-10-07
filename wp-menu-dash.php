@@ -11,7 +11,7 @@ Text Domain: rc_wmd
 Domain Path: languages
 */
 
-include_once( 'includes/edit_custom_walker.php' );
+include_once('includes/WMD_Walker_Nav_Menu_Edit.php');
 include_once( 'includes/rc_wmd_walker.php' );
 
 class rc_wp_menu_dash {
@@ -46,7 +46,7 @@ class rc_wp_menu_dash {
 
         // adding css and js
         wp_enqueue_style('rc_wmd-admin-css', $pluginUrl . '/css/rc_wmd.css');
-        wp_register_script('rc_wmd-admin-js', $pluginUrl . '/js/rc_wmd.js', array('jquery'));
+        wp_enqueue_script('rc_wmd-admin-js', $pluginUrl . '/js/rc_wmd.js', array('jquery'));
     }
 
 
@@ -73,6 +73,7 @@ class rc_wp_menu_dash {
 
         $menu_item->wmd_subtitle = get_post_meta( $menu_item->ID, '_menu_item_wmd_subtitle', true );
         $menu_item->wmd_background = get_post_meta( $menu_item->ID, '_menu_item_wmd_background', true );
+        $menu_item->wmd_active = get_post_meta( $menu_item->ID, '_menu_item_wmd_active', true );
         return $menu_item;
 
     }
@@ -96,6 +97,14 @@ class rc_wp_menu_dash {
         }
         $wmd_background_value = $_REQUEST['menu-item-wmd_background'][$menu_item_db_id];
         update_post_meta( $menu_item_db_id, '_menu_item_wmd_background', $wmd_background_value );
+
+        // wmd_active
+        if (!isset($_REQUEST['menu-item-wmd_active'][$menu_item_db_id])) {
+            $_REQUEST['menu-item-wmd_active'][$menu_item_db_id] = false;
+        } else {
+            $_REQUEST['menu-item-wmd_active'][$menu_item_db_id] = true;
+        }
+        update_post_meta( $menu_item_db_id, '_menu_item_wmd_active', $_REQUEST['menu-item-wmd_active'][$menu_item_db_id] );
 
     }
 

@@ -30,3 +30,11 @@
 
 .wmd__tile-inner:hover {height: 190px;}
 .wmd__tile-inner:hover .wmd__mask { opacity: 1;}
+
+
+/* admin area */
+
+.adm-wmd {padding: 0 6px;border: 1px solid #cfcfcf;float:left;width: 377px;}
+.adm-wmd__box--hidden {display: none;}
+
+.adm-wmd .widefat {width: 90%;}

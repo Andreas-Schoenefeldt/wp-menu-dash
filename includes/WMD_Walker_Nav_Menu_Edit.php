@@ -151,6 +151,49 @@ class WMD_Walker_Nav_Menu_Edit extends Walker_Nav_Menu {
 		</div>
 
 		<div class="menu-item-settings wp-clearfix" id="menu-item-settings-<?php echo $item_id; ?>">
+
+			<?php // custom fields ?>
+
+			<div class="adm-wmd">
+				<p class="field-wmd-checkbox description-wide">
+					<?php
+
+					$value = get_post_meta( $item->ID, '_menu_item_wmd_active', true);
+					if($value == true) $value = 'checked="checked"';
+
+					?>
+					<label for="edit-menu-item-wmd_active-<?php echo $item_id; ?>">
+						<input type="checkbox" value="enabled" class="adm-wmd-checker" id="edit-menu-item-wmd_active-<?php echo $item_id; ?>" name="menu-item-wmd_active[<?php echo $item_id; ?>]" <?php echo $value; ?> />
+						<strong><em><?php _e( 'In einem Menüraster einbinden?', "mk_framework" ); ?></em></strong>
+					</label>
+				</p>
+
+				<div class="adm-wmd__box description-wide<?php echo $value ? '' : ' adm-wmd__box--hidden'; ?>">
+
+					<p class="field-custom description description-wide">
+						<label for="edit-menu-item-wmd_subtitle-<?php echo $item_id; ?>">
+							<?php _e( 'Box Overlay Beschreibung' ); ?><br />
+							<input type="text" id="edit-menu-item-wmd_subtitle-<?php echo $item_id; ?>" class="widefat code edit-menu-item-custom" name="menu-item-wmd_subtitle[<?php echo $item_id; ?>]" value="<?php echo esc_attr( $item->wmd_subtitle ); ?>" />
+						</label>
+					</p>
+
+
+					<a href="#" id="mk-media-upload-<?php echo $item_id; ?>" class="mk-open-media button button-primary "><?php _e( 'Box Hintergrund anpassen', 'mk_framework' ); ?></a>
+					<p class="description description-wide">
+						<label for="edit-menu-item-megamenu-background-<?php echo $item_id; ?>">
+							<input type="hidden" id="edit-menu-item-megamenu-background-<?php echo $item_id; ?>" class="mk-new-media-image widefat code edit-menu-item-megamenu-background" name="menu-item-wmd_background[<?php echo $item_id; ?>]" value="<?php echo $item->wmd_background; ?>" />
+							<img src="<?php echo $item->wmd_background; ?>" id="mk-media-img-<?php echo $item_id; ?>" class="" style="<?php echo ( trim( $item->wmd_background ) ) ? 'display: block;' : '';?>max-width: 100%;" />
+							<a href="#" id="mk-media-remove-<?php echo $item_id; ?>" class="remove-mk-megamenu-background" style="display: <?php echo ( trim( $item->wmd_background ) ) ? 'inline' : 'none';?>;">Remove Image</a>
+						</label>
+					</p>
+
+				</div>
+			</div>
+
+
+			<?php // custom fields end ?>
+
+
 			<?php if ( 'custom' == $item->type ) : ?>
 				<p class="field-url description description-wide">
 					<label for="edit-menu-item-url-<?php echo $item_id; ?>">
@@ -196,30 +239,6 @@ class WMD_Walker_Nav_Menu_Edit extends Walker_Nav_Menu {
 					<span class="description"><?php _e('The description will be displayed in the menu if the current theme supports it.'); ?></span>
 				</label>
 			</p>
-
-			<?php // custom fields ?>
-
-			<hr style="border: 1px solid #ccc;margin: 20px 0;" class="description-wide"/>
-
-			<p class="field-custom description description-wide">
-				<label for="edit-menu-item-wmd_subtitle-<?php echo $item_id; ?>">
-					<?php _e( 'Beschreibung' ); ?><br />
-					<input type="text" id="edit-menu-item-wmd_subtitle-<?php echo $item_id; ?>" class="widefat code edit-menu-item-custom" name="menu-item-wmd_subtitle[<?php echo $item_id; ?>]" value="<?php echo esc_attr( $item->wmd_subtitle ); ?>" />
-				</label>
-			</p>
-
-
-			<a href="#" id="mk-media-upload-<?php echo $item_id; ?>" class="mk-open-media button button-primary "><?php _e( 'Set Background Image', 'mk_framework' ); ?></a>
-			<p class="description description-wide">
-				<label for="edit-menu-item-megamenu-background-<?php echo $item_id; ?>">
-					<input type="hidden" id="edit-menu-item-megamenu-background-<?php echo $item_id; ?>" class="mk-new-media-image widefat code edit-menu-item-megamenu-background" name="menu-item-wmd_background[<?php echo $item_id; ?>]" value="<?php echo $item->wmd_background; ?>" />
-					<img src="<?php echo $item->wmd_background; ?>" id="mk-media-img-<?php echo $item_id; ?>" class="" style="<?php echo ( trim( $item->wmd_background ) ) ? 'display: block;' : '';?>max-width: 100%;" />
-					<a href="#" id="mk-media-remove-<?php echo $item_id; ?>" class="remove-mk-megamenu-background" style="<?php echo ( trim( $item->megamenu_background ) ) ? 'display: inline;' : '';?>">Remove Image</a>
-				</label>
-			</p>
-
-
-			<?php // custom fields end ?>
 
 			<p class="field-move hide-if-no-js description description-wide">
 				<label>
