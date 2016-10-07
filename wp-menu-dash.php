@@ -116,3 +116,8 @@ function load_wp_media_files() {
 }
 
 add_action( 'admin_enqueue_scripts', 'load_wp_media_files' );
+
+
+// shortcodes
+include_once('shortcodes/menu_dash.php');
+add_shortcode( 'menu_dash', 'sc_wp_menu_dash');

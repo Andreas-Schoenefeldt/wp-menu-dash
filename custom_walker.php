@@ -1,6 +1,5 @@
 <?php
 /**
- * Might be useless for our purpose
  *
  * Custom Walker
  *
@@ -8,10 +7,14 @@
  * @since       1.0
  * @return      void
  */
-class rc_wmd_walker extends Walker_Nav_Menu
-{
+class rc_wmd_walker extends Walker_Nav_Menu {
     function start_el(&$output, $item, $depth, $args)
     {
+        echo '<pre>';
+        print_r($item);
+        echo '</pre>';
+
+
         global $wp_query;
         $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
 

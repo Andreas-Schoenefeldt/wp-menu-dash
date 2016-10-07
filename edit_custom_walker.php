@@ -213,7 +213,7 @@ class WMD_Walker_Nav_Menu_Edit extends Walker_Nav_Menu {
 			<p class="description description-wide">
 				<label for="edit-menu-item-megamenu-background-<?php echo $item_id; ?>">
 					<input type="hidden" id="edit-menu-item-megamenu-background-<?php echo $item_id; ?>" class="mk-new-media-image widefat code edit-menu-item-megamenu-background" name="menu-item-wmd_background[<?php echo $item_id; ?>]" value="<?php echo $item->wmd_background; ?>" />
-					<img src="<?php echo $item->wmd_background; ?>" id="mk-media-img-<?php echo $item_id; ?>" class="" style="<?php echo ( trim( $item->megamenu_background ) ) ? 'display: inline;' : '';?>" />
+					<img src="<?php echo $item->wmd_background; ?>" id="mk-media-img-<?php echo $item_id; ?>" class="" style="<?php echo ( trim( $item->wmd_background ) ) ? 'display: block;' : '';?>max-width: 100%;" />
 					<a href="#" id="mk-media-remove-<?php echo $item_id; ?>" class="remove-mk-megamenu-background" style="<?php echo ( trim( $item->megamenu_background ) ) ? 'display: inline;' : '';?>">Remove Image</a>
 				</label>
 			</p>
