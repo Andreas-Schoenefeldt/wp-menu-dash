@@ -11,6 +11,9 @@ Text Domain: rc_wmd
 Domain Path: languages
 */
 
+include_once( 'includes/edit_custom_walker.php' );
+include_once( 'includes/rc_wmd_walker.php' );
+
 class rc_wp_menu_dash {
 
     /*--------------------------------------------*
@@ -24,6 +27,7 @@ class rc_wp_menu_dash {
 
         // load the plugin translation files
         add_action( 'init', array( $this, 'textdomain' ) );
+        add_action( 'init', array( $this, 'rc_wmd_load_libraries' ) );
 
         // add custom menu fields to menu
         add_filter( 'wp_setup_nav_menu_item', array( $this, 'rc_wmd_add_custom_nav_fields' ) );
@@ -33,8 +37,17 @@ class rc_wp_menu_dash {
 
         // edit menu walker
         add_filter( 'wp_edit_nav_menu_walker', array( $this, 'rc_wmd_edit_walker'), 10, 2 );
-
     } // end constructor
+
+
+    public function rc_wmd_load_libraries(){
+
+        $pluginUrl = plugins_url('',__FILE__);
+
+        // adding css and js
+        wp_enqueue_style('rc_wmd-admin-css', $pluginUrl . '/css/rc_wmd.css');
+        wp_register_script('rc_wmd-admin-js', $pluginUrl . '/js/rc_wmd.js', array('jquery'));
+    }
 
 
     /**
@@ -100,23 +113,17 @@ class rc_wp_menu_dash {
         return 'WMD_Walker_Nav_Menu_Edit';
 
     }
-
 }
-
-// instantiate plugin's class
-$GLOBALS['wp_menu_dash'] = new rc_wp_menu_dash();
-
-
-include_once( 'edit_custom_walker.php' );
-include_once( 'custom_walker.php' );
 
 // UPLOAD ENGINE
 function load_wp_media_files() {
     wp_enqueue_media();
 }
 
-add_action( 'admin_enqueue_scripts', 'load_wp_media_files' );
+// instantiate plugin's class
+$GLOBALS['wp_menu_dash'] = new rc_wp_menu_dash();
 
+add_action( 'admin_enqueue_scripts', 'load_wp_media_files' );
 
 // shortcodes
 include_once('shortcodes/menu_dash.php');

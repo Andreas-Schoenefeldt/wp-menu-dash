@@ -17,13 +17,20 @@ function sc_wp_menu_dash($attributes, $content = null){
         ),
         $attributes)
     );
+    /** @var string $backgrounds */
+    /** @var string $menu_id */
+
+    $backgrounds = explode('|', $backgrounds);
+    $lucky_background = $backgrounds[round( rand(0, count($backgrounds) - 1) )];
+
 
 
     return wp_nav_menu( array(
         'menu_id'         => $menu_id,
         'echo'            => false,
         'depth'           => 0,
-        'walker'          => new rc_wmd_walker()
+        'walker'          => new rc_wmd_walker(),
+        'items_wrap'      => '<div class="wmd" style="background-image:url(' . $lucky_background . ');">%3$s</div>'
     ));
 
 };

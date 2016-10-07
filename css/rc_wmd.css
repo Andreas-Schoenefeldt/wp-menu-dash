@@ -1,0 +1,32 @@
+.wmd {
+    padding: 50px 5%;font-size: 14px;
+    background-size: cover;background-position: center center;
+}
+.wmd:after {content: ''; display: block; clear: both;}
+
+.wmd__tile {float: left;width: 33.3333%;margin-bottom: 20px;height: 220px;}
+.wmd__tile-inner {
+    margin: 0 20px;display: block;position: relative;
+    height: 170px;
+    background-color: #730504;background-size: cover;background-position: center center;
+    transition: all 0.18s ease-in-out 0s;
+}
+
+#theme-page .wmd__headline {
+    margin: 0 20px;
+    background: #730504;color: #fff;font-size: inherit;padding: 8px 10px;
+    font-weight: normal;white-space: nowrap;  text-transform: none;
+    overflow: hidden;
+}
+
+.wmd__mask {
+    background-color: rgba(255, 255, 255, 0.7);
+    opacity: 0;
+    transition: all 0.4s ease-in-out 0s;
+    display: block; padding: 40px 10px 15px; right: 0;
+    font-weight: bold; left: 0; overflow: hidden; position: absolute; text-align: left; top: 0;
+    color: #730504;
+}
+
+.wmd__tile-inner:hover {height: 190px;}
+.wmd__tile-inner:hover .wmd__mask { opacity: 1;}
