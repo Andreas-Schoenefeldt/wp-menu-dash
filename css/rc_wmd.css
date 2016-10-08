@@ -1,5 +1,6 @@
 .wmd {
     padding: 50px 5%;font-size: 14px;
+    margin: -50px;
     background-size: cover;background-position: center center;
 }
 .wmd:after {content: ''; display: block; clear: both;}

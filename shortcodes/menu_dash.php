@@ -12,20 +12,21 @@
 function sc_wp_menu_dash($attributes, $content = null){
 
     extract(shortcode_atts(array(
-        'backgrounds'     => '',
-        'menu_id'         => '',
+            'backgrounds'     => '',	// the backgrounds, which are alternating
+            'menu_id'         => '',	// an id for the menu (not used)
+            'menu'			  => ''		// this is the menu identifier
         ),
-        $attributes)
+            $attributes)
     );
     /** @var string $backgrounds */
     /** @var string $menu_id */
+    /** @var string $menu */
 
     $backgrounds = explode('|', $backgrounds);
-    $lucky_background = $backgrounds[round( rand(0, count($backgrounds) - 1) )];
-
-
+    $lucky_background = $backgrounds[intval( round( rand(0, count($backgrounds) - 1) ))];
 
     return wp_nav_menu( array(
+        'menu'			  => $menu,
         'menu_id'         => $menu_id,
         'echo'            => false,
         'depth'           => 0,
