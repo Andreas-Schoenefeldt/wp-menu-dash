@@ -1,9 +1,11 @@
 .wmd {
     padding: 50px 5%;font-size: 14px;
-    margin: -50px;
+	margin: -50px;
     background-size: cover;background-position: center center;
 }
-.wmd:after {content: ''; display: block; clear: both;}
+.wmd:after, .wmd__wrapper:after {content: ''; display: block; clear: both;}
+
+.wmd__wrapper{ background-size: contain; background-position:  center center;background-repeat: no-repeat;margin: -30px; padding: 30px;}
 
 .wmd__tile {float: left;width: 33.3333%;margin-bottom: 20px;height: 220px;}
 .wmd__tile-inner {

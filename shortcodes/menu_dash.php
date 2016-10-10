@@ -13,6 +13,7 @@ function sc_wp_menu_dash($attributes, $content = null){
 
     extract(shortcode_atts(array(
             'backgrounds'     => '',	// the backgrounds, which are alternating
+			'bg_icon'		  => '',	// the actual icon behind the dashes
             'menu_id'         => '',	// an id for the menu (not used)
             'menu'			  => ''		// this is the menu identifier
         ),
@@ -21,7 +22,8 @@ function sc_wp_menu_dash($attributes, $content = null){
     /** @var string $backgrounds */
     /** @var string $menu_id */
     /** @var string $menu */
-
+    /** @var string $bg_icon */
+	
     $backgrounds = explode('|', $backgrounds);
     $lucky_background = $backgrounds[intval( round( rand(0, count($backgrounds) - 1) ))];
 
@@ -31,7 +33,7 @@ function sc_wp_menu_dash($attributes, $content = null){
         'echo'            => false,
         'depth'           => 0,
         'walker'          => new rc_wmd_walker(),
-        'items_wrap'      => '<div class="wmd" style="background-image:url(' . $lucky_background . ');">%3$s</div>'
+        'items_wrap'      => '<div class="wmd" style="background-image:url(' . $lucky_background . ');"><div class="wmd__wrapper" style="background-image:url(' . $bg_icon . ');">%3$s</div></div>'
     ));
 
 };
