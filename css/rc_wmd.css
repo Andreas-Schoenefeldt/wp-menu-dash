@@ -5,7 +5,7 @@
 }
 .wmd:after, .wmd__wrapper:after {content: ''; display: block; clear: both;}
 
-.wmd__wrapper{ background-size: contain; background-position:  center center;background-repeat: no-repeat;margin: -30px; padding: 200px 126px 136px;}
+.wmd__wrapper{ background-size: contain; background-position:  center center;background-repeat: no-repeat;margin: -30px; padding: 113px 126px 45px;}
 
 .wmd__tile {float: left;width: 33.3333%;margin-bottom: 20px;height: 198px;}
 .wmd__tile-inner {
