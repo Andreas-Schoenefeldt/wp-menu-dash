@@ -3,7 +3,7 @@
 Plugin Name: Menu Dash
 Plugin URL: https://github.com/Andreas-Schoenefeldt/wp-menu-dash
 Description: Allows to render a menu as a dashboard - good for overview pages
-Version: 1.0.3
+Version: 1.0.5
 Author: Andreas Schönefeldt
 Author URI: https://github.com/Andreas-Schoenefeldt
 Contributors:
