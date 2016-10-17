@@ -5,12 +5,12 @@
 }
 .wmd:after, .wmd__wrapper:after {content: ''; display: block; clear: both;}
 
-.wmd__wrapper{ background-size: contain; background-position:  center center;background-repeat: no-repeat;margin: -30px; padding: 30px;}
+.wmd__wrapper{ background-size: contain; background-position:  center center;background-repeat: no-repeat;margin: -30px; padding: 200px 126px 136px;}
 
-.wmd__tile {float: left;width: 33.3333%;margin-bottom: 20px;height: 220px;}
+.wmd__tile {float: left;width: 33.3333%;margin-bottom: 20px;height: 198px;}
 .wmd__tile-inner {
     margin: 0 20px;display: block;position: relative;
-    height: 170px;
+    height: 146px;
     background-color: #730504;background-size: cover;background-position: center center;
     transition: all 0.18s ease-in-out 0s;
 }
@@ -31,7 +31,7 @@
     color: #730504;
 }
 
-.wmd__tile-inner:hover {height: 190px;}
+.wmd__tile-inner:hover {height: 166px;}
 .wmd__tile-inner:hover .wmd__mask { opacity: 1;}
 
 
