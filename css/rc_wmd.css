@@ -41,3 +41,9 @@
 .adm-wmd__box--hidden {display: none;}
 
 .adm-wmd .widefat {width: 90%;}
+
+
+@media only screen and (max-width:760px){
+	.wmd__tile { width: 100%; }
+	.wmd__wrapper{ margin: 45px 61px 28px;}
+}
